@@ -1,0 +1,64 @@
+{
+  "syndrome": "血瘀",
+  "pinyin": "xuè yū",
+  "english": "Blood Stasis",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-08",
+  "pathogenesis": "血行瘀滞，脉络不通；久病入络，气滞血瘀，或阳虚寒凝",
+  "confusable_syndromes": ["气滞", "血虚", "热证", "痰湿"],
+  "tongue_high_region": "舌两侧、舌尖、舌下络脉",
+  "tongue_summary": "舌紫暗或有瘀点瘀斑、舌下静脉曲张",
+  "dataset_expected_ratio": 0.10,
+  "dataset_ratio_basis": "慢性病/老年多见。基于老年人群流行病学（血瘀4.2%）+ 冠心病主导（血瘀78%为最高）综合判断",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "紫暗、暗红或淡紫", "confidence": "高"},
+    {"dimension": "舌形", "value": "可正常，或见瘀点瘀斑", "confidence": "中"},
+    {"dimension": "齿痕", "value": "一般无", "confidence": "低"},
+    {"dimension": "舌质", "value": "老，舌面偏干或暗", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常，重症可见歪斜", "confidence": "低"},
+    {"dimension": "苔色", "value": "白或黄", "confidence": "中"},
+    {"dimension": "苔厚薄", "value": "薄或厚", "confidence": "低"},
+    {"dimension": "苔润燥", "value": "正常或略干", "confidence": "中"},
+    {"dimension": "苔腻腐剥落", "value": "不腻或兼腻", "confidence": "低"},
+    {"dimension": "舌尖", "value": "可见瘀点", "confidence": "高"},
+    {"dimension": "舌中", "value": "暗或见瘀斑", "confidence": "中"},
+    {"dimension": "舌根", "value": "暗，或舌下络脉增粗", "confidence": "中"},
+    {"dimension": "舌两侧", "value": "可见瘀斑、紫暗或红点", "confidence": "高"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "anchor": "✓血瘀（固定刺痛金标准）", "question": "您身体是否有固定部位的刺痛，夜间或安静时加重？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "anchor": "✓血瘀/气滞（鉴别金标准）", "question": "您的疼痛是走窜胀痛还是固定刺痛？", "options": ["走窜胀痛（气滞）", "固定刺痛（血瘀）", "无疼痛"]},
+    {"id": 3, "type": "positive", "anchor": "✓血瘀", "question": "您面色是否晦暗，或口唇颜色偏紫暗？", "options": ["是", "不是"]},
+    {"id": 4, "type": "positive", "anchor": "✓血瘀", "question": "您是否容易出现皮肤瘀斑，或牙龈出血颜色暗红？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 5, "type": "positive", "anchor": "✓血瘀（女性专属）", "applies_to": "女性", "question": "月经颜色是否暗红、血块多，或痛经拒按？", "options": ["是", "不是", "不适用"]},
+    {"id": 6, "type": "positive", "anchor": "✓血瘀（胸痹）", "question": "您是否胸闷刺痛，像针扎一样？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 7, "type": "positive", "anchor": "✓血瘀（漱水不欲咽金标准）", "question": "您是否口渴但只想漱口不想咽下？", "options": ["是", "不是"]},
+    {"id": 8, "type": "positive", "anchor": "✓血瘀（瘀热）", "question": "您是否午后或夜间发热，或心烦？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 9, "type": "positive", "anchor": "✓血瘀（癥瘕）", "question": "您是否身体某处有肿块、结节，或外伤后疼痛久不愈？", "options": ["是", "不是"]},
+    {"id": 10, "type": "positive", "anchor": "✓血瘀（头痛）", "question": "您是否头痛如针刺、部位固定？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 11, "type": "positive", "anchor": "✓血瘀（论文创新点：舌下络脉）", "question": "您是否舌下静脉紫暗、增粗？", "options": ["是", "不是", "无法判断"]}
+  ],
+  "differential": [
+    {
+      "vs": "气滞",
+      "key": "气滞为胀痛走窜、按揉减轻；血瘀为刺痛固定、拒按、夜间加重"
+    },
+    {
+      "vs": "血虚",
+      "key": "血虚面白或萎黄，舌淡白，无瘀斑；血瘀面色晦暗，舌紫暗或瘀点"
+    },
+    {
+      "vs": "热证",
+      "key": "热证出血色鲜红、舌红苔黄；血瘀出血色暗有块，舌紫暗"
+    },
+    {
+      "vs": "痰湿",
+      "key": "痰湿以体胖、苔腻、头重为主；血瘀以刺痛、瘀斑、舌紫为主"
+    }
+  ],
+  "design_notes": {
+    "key_insight": "第11条'舌下静脉紫暗增粗'是血瘀的舌下络脉金标准。这是论文'Discussion'章节伏笔未来'舌象+舌下络脉'第二篇研究的关键问诊数据点。当患者勾选'是'时，模型可以同时给出'血瘀诊断'+'建议就医'两条预警",
+    "future_work_link": "本问诊可直接对接第二篇论文（舌下络脉+血瘀证专项，2026年我们讨论过的方案3）"
+  }
+}

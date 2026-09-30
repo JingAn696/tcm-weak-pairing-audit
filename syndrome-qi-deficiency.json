@@ -1,0 +1,58 @@
+{
+  "syndrome": "气虚",
+  "pinyin": "qì xū",
+  "english": "Qi Deficiency",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-07",
+  "last_revised": "2026-09-08",
+  "pathogenesis": "脾胃失运，升降失职；思虑营营，消耗过度",
+  "confusable_syndromes": ["痰湿", "阳虚", "血虚", "肝郁"],
+  "tongue_high_region": "舌中（脾主舌中，气虚多责脾）",
+  "tongue_summary": "舌体胖大+有齿痕；舌质淡白；薄白苔",
+  "dataset_expected_ratio": 0.16,
+  "dataset_ratio_basis": "基于冠心病（8129例，气虚占67%为最高单一证型）+ 老年人群（气虚7.2%主导）+ 中医门诊经验综合判断",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "淡白或淡红偏白", "confidence": "高"},
+    {"dimension": "舌形", "value": "胖大", "confidence": "高"},
+    {"dimension": "齿痕", "value": "有，且多在舌边两侧", "confidence": "高"},
+    {"dimension": "舌质", "value": "嫩舌、舌质纹理细腻、光滑、含水多，视觉上柔软如婴儿肌肤", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常", "confidence": "低"},
+    {"dimension": "苔色", "value": "白苔", "confidence": "高"},
+    {"dimension": "苔厚薄", "value": "薄", "confidence": "高"},
+    {"dimension": "苔润燥", "value": "润泽（或略带水滑）", "confidence": "中"},
+    {"dimension": "苔腻腐剥落", "value": "不腻、不腐、不剥落", "confidence": "中"},
+    {"dimension": "舌尖", "value": "凹陷、色淡白", "confidence": "低"},
+    {"dimension": "舌中", "value": "明显凹陷或纵行浅纹", "confidence": "高"},
+    {"dimension": "舌根", "value": "松软水滑", "confidence": "低"},
+    {"dimension": "舌两侧", "value": "淡白无斑、无红刺", "confidence": "低"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "anchor": "✓气虚", "question": "您经常感觉全身乏力，精神不振吗", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "anchor": "✓气虚（肺）", "question": "别人常说您声音小吗", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 3, "type": "positive", "anchor": "✓气虚（肺，卫气不固）", "question": "您是否稍微活动一下就气喘吁吁，且出汗明显比同龄人多", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 4, "type": "positive", "anchor": "✓气虚（脾，诱因权重高）", "question": "午饭后疲劳感会加重吗？", "options": ["会", "不会"]},
+    {"id": 5, "type": "negative", "anchor": "→湿困（反向鉴别）", "question": "早晨起床时会觉得疲劳吗？", "options": ["会", "不会"]},
+    {"id": 6, "type": "negative", "anchor": "→湿困（反向鉴别）", "question": "您经常感觉身体沉重，像裹了一层湿布，或者头部昏蒙如戴帽子吗", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 7, "type": "positive", "anchor": "✓气虚（脾）", "question": "您的大便成形吗", "options": ["成形", "不成形"]},
+    {"id": 8, "type": "negative", "anchor": "→湿困（反向鉴别）", "question": "您的大便黏马桶", "options": ["黏", "不黏"]},
+    {"id": 9, "type": "comorbid", "anchor": "→肝郁（探针）", "question": "您是否经常感觉胸闷、胁肋（肋骨两侧）胀满不适？", "options": ["是", "不是"]},
+    {"id": 10, "type": "comorbid", "anchor": "→血虚（探针）", "question": "您蹲下后突然站起来，是否会出现眼前发黑、头晕眼花的情况", "options": ["会", "不会"]},
+    {"id": 11, "type": "comorbid", "anchor": "→血虚（探针）", "question": "您入睡困难吗", "options": ["不困难", "困难"]},
+    {"id": 12, "type": "positive", "anchor": "✓气虚", "question": "您是否感觉睡不解乏，醒后仍然困", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 13, "type": "comorbid", "anchor": "→血虚（探针）", "question": "您是否彻夜多梦", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 14, "type": "comorbid", "anchor": "→阳虚（反向鉴别）", "question": "您怕冷吗", "options": ["不怕", "稍怕", "明显", "严重"]},
+    {"id": 15, "type": "comorbid", "anchor": "→阳虚（脾阳，反向鉴别）", "question": "您喝凉水或吃生冷食物后，肚子反应如何？", "options": ["觉得不舒服，但基本不腹泻", "立刻肚子疼、拉肚子，甚至拉出未消化的食物"]},
+    {"id": 16, "type": "comorbid", "anchor": "→阴虚/湿困（三选一完成鉴别）", "question": "您平时常口干口渴的感觉吗", "options": ["一直口干、喜凉（阴虚）", "早晨口干（湿困）", "不干"]}
+  ],
+  "differential": [
+    {
+      "vs": "阳虚",
+      "key": "怕风吹(恶风)=气虚；畏寒(温度低、腰膝小腹后背发凉、加衣盖被难缓解)=阳虚"
+    },
+    {
+      "vs": "血虚",
+      "key": "气虚=没劲、懒言、自汗；血虚=头晕、失眠、面色苍白"
+    }
+  ]
+}

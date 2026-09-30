@@ -1,0 +1,48 @@
+# =============================================================
+# papers/code 依赖清单（AutoDL 环境）
+# 环境：PyTorch 2.5.1 / Python 3.12 / CUDA 12.4 / 单卡 24GB（RTX 3090 或 4090）
+# 用法：pip install -r requirements.txt
+# =============================================================
+
+# ---------- 已预装（AutoDL PyTorch 镜像自带，无需重复装）----------
+# torch == 2.5.1
+# torchvision
+# CUDA 12.4 runtime
+
+# ---------- 核心：BiomedCLIP 加载 ----------
+# open_clip 原生框架（BiomedCLIP 官方即 open_clip 架构，做 contrastive learning
+# 微调最自然，也方便冻结 backbone）。
+open_clip_torch
+
+# transformers：open_clip 加载 HF 格式的 BiomedCLIP 时，需要 transformers 提供
+# HFTextEncoder（PubMedBERT）。AutoDL PyTorch 镜像未预装，必须手动装。
+# 2026-09-09 真实踩坑：open_clip.create_model_from_pretrained 报
+# "RuntimeError: Please pip install transformers to use pre-trained HuggingFace models"
+transformers>=4.36
+
+# accelerate：transformers Trainer 的依赖（>=0.26 是 PyTorch 2.6 安全检查后的版本要求）
+# 2026-09-09 真实踩坑：跑 baseline 1 报
+# "ImportError: Using the Trainer with PyTorch requires accelerate>=0.26.0"
+accelerate>=0.26
+
+# tokenizers：transformers 的依赖，但 open_clip 单独使用时也需要
+# （2026-09-09 验证：transformers 装好后 tokenizers 会被自动拉入）
+# tokenizers
+
+# ---------- 知识图谱嵌入 ----------
+pykeen
+
+# ---------- 数据处理 + 评估 ----------
+numpy
+pillow          # PIL，舌象图像读取
+scikit-learn    # 评估指标（F1/AUC/混淆矩阵）
+pandas          # CSV 读写
+
+# ---------- 可视化 ----------
+matplotlib
+seaborn
+
+# ---------- 微调（PEFT，LoRA 用）----------
+# 当前方案默认「冻结 BiomedCLIP backbone + 只训 cross-attention / KG / classifier」，
+# 暂不需要 peft。若后续改用 LoRA 再取消注释：
+# peft

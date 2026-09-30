@@ -1,0 +1,69 @@
+{
+  "syndrome": "血虚",
+  "pinyin": "xuè xū",
+  "english": "Blood Deficiency",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-07",
+  "last_revised": "2026-09-08",
+  "pathogenesis": "血液化源不足（脾肾亏虚）或耗损太过（失血、思虑暗耗心血），导致脏腑百骸、头面官窍失于濡养，心神不宁",
+  "confusable_syndromes": ["阴虚", "气虚", "肝郁（血虚肝郁）", "血瘀（血虚夹瘀）"],
+  "tongue_high_region": "整舌均可见（心主血脉、脾统血、肝藏血均参与），高发部位为舌中 + 舌两侧（脾、肝所主区域尤为明显）",
+  "tongue_summary": "舌体瘦薄或偏小；舌质颜色淡白、苍白、缺乏血色（严重时呈\"纸白\"样）",
+  "dataset_expected_ratio": 0.12,
+  "dataset_ratio_basis": "女性多见，与气虚常合并（血虚肝血虚、血虚气虚复合证型），基于临床经验+气虚主合并模式推断",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "淡白或苍白（血色明显不足，比气虚之\"淡红偏白\"程度更重，甚至呈\"纸白\"样）", "confidence": "高"},
+    {"dimension": "舌形", "value": "瘦薄或偏小（舌体比正常窄小、偏薄，因气血不能充养舌体肌肉）", "confidence": "中"},
+    {"dimension": "齿痕", "value": "多无或极轻微（除非合并气虚，否则舌体不胖大，故无明显齿痕）", "confidence": "高"},
+    {"dimension": "舌质", "value": "偏嫩或光嫩（因血不养舌，舌面缺乏红润光泽，略显干瘪稚嫩）", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常，部分长期血虚者可见舌体伸缩迟缓（不灵活）", "confidence": "低"},
+    {"dimension": "苔色", "value": "白苔", "confidence": "高"},
+    {"dimension": "苔厚薄", "value": "薄苔或少苔（因津血同源，血虚常伴津液不足，苔难以厚积）", "confidence": "高"},
+    {"dimension": "苔润燥", "value": "偏燥或欠润（血虚津亏，舌面津液上承不足；若兼气虚，亦可润，但色泽仍淡）", "confidence": "中"},
+    {"dimension": "苔腻腐剥落", "value": "不腻、不腐，部分可见花剥苔（地图舌）或光剥苔（舌面斑驳脱落，属气阴/气血两虚重症）", "confidence": "中"},
+    {"dimension": "舌尖", "value": "淡白、无华，可见轻度凹陷（因心血不足，上荣于尖者少）", "confidence": "低"},
+    {"dimension": "舌中", "value": "淡白，或见浅而细的纵行裂纹（长期血虚，舌中肌肉失于濡养萎缩所致）", "confidence": "中"},
+    {"dimension": "舌根", "value": "淡白、苔薄或少苔（肾精不足，精不化血）", "confidence": "低"},
+    {"dimension": "舌两侧", "value": "淡白，或略见青紫/瘀斑（若合并血瘀，则肝藏血失职，血行不畅）", "confidence": "中"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "applies_to": "all", "anchor": "血虚", "question": "您的面色、口唇、指甲颜色是否比常人明显发白、缺乏血色？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "applies_to": "all", "anchor": "血虚", "question": "您蹲下后突然站起来，是否经常出现眼前发黑、头晕眼花的情况？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 3, "type": "positive", "applies_to": "all", "anchor": "血虚", "question": "您是否存在入睡困难，或者睡着后整夜乱梦纷纭（像放电影一样）？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 4, "type": "positive", "applies_to": "all", "anchor": "血虚", "question": "您是否经常感觉心慌、心悸（心脏突然\"咯噔\"一下或跳得乱）？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 5, "type": "positive", "applies_to": "female", "anchor": "血虚", "question": "（女性）您的月经量是否偏少、颜色偏淡、经期经常推迟甚至闭经？", "options": ["否", "是"]},
+    {"id": 6, "type": "negative", "applies_to": "all", "anchor": "血虚", "question": "您是否白天活动时很少出汗，且皮肤感觉干燥、缺乏润泽感？", "options": ["是（汗少/皮肤干）", "否（出汗正常或偏多）"], "differentiates": "气虚（自汗）"},
+    {"id": 7, "type": "negative", "applies_to": "all", "anchor": "血虚", "question": "您的疲劳感，是否在精神紧张或思考过度后明显加重？", "options": ["会", "不会"], "differentiates": "气虚（劳累后加重）"},
+    {"id": 8, "type": "negative", "applies_to": "all", "anchor": "血虚", "question": "您是否经常感觉头晕眼花，但头并不沉重（不是戴帽子的感觉）？", "options": ["是", "否（头沉重）"], "differentiates": "湿浊/气虚（头重如裹）"},
+    {"id": 9, "type": "probe", "applies_to": "all", "anchor": "血虚+阴虚（兼探针）", "question": "您是否觉得手脚心发热（五心烦热），或者午后脸颊有烘热感？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "阴虚（潮热盗汗）"},
+    {"id": 10, "type": "probe", "applies_to": "all", "anchor": "血虚+阴虚（兼探针）", "question": "您是否感觉口干咽燥，总想喝水，甚至想喝凉的？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "阴虚（津亏）"},
+    {"id": 11, "type": "probe", "applies_to": "all", "anchor": "肝郁", "question": "您是否经常感觉情绪低落、烦躁易怒，且两胁（肋骨区域）胀痛不适？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "肝郁（气滞）"},
+    {"id": 12, "type": "probe", "applies_to": "all", "anchor": "肝郁", "question": "您是否喜欢叹气，叹口气觉得胸闷能缓解？", "options": ["是", "否"], "differentiates": "肝郁（气机不畅）"},
+    {"id": 13, "type": "probe", "applies_to": "all", "anchor": "气虚", "question": "您是否经常感觉全身乏力、精神不振，且稍微一动就气喘出汗？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "气虚（动则汗出）"},
+    {"id": 14, "type": "probe", "applies_to": "all", "anchor": "阳虚（选C时）", "question": "您怕冷吗？具体是怕风吹，还是明显的畏寒怕冷（腰腹冰凉，加衣不缓解）？", "options": ["不怕", "怕风（避风则安）", "畏寒（加衣/热敷仍冷）"], "differentiates": "阳虚（畏寒）"},
+    {"id": 15, "type": "probe", "applies_to": "all", "anchor": "阳虚（选C时）", "question": "您喝凉水或吃生冷食物后，是觉得腹胀不消化，还是立刻腹痛拉肚子？", "options": ["无不适或略胀", "腹胀不泻", "立即腹痛腹泻、完谷不化"], "differentiates": "阳虚（完谷不化）"}
+  ],
+  "differential": [
+    {
+      "vs": "气虚",
+      "key": "血虚核心是\"干、白、晕\"（皮肤干、面无血色、蹲起眼黑），且失眠多梦、入睡困难；气虚核心是\"松、汗、懒\"（肌肉松软、白天自汗、声音低微），且嗜睡、食后困顿。舌象：血虚舌瘦薄淡白，气虚舌胖大齿痕。"
+    },
+    {
+      "vs": "阴虚（血虚与阴虚常同源）",
+      "key": "血虚以面色苍白、头晕、心悸、月经量少为主；阴虚以五心烦热、潮热盗汗、口干咽燥、舌红少苔为主。若两者兼见，则属\"血虚阴伤\"或\"阴虚血少\"。"
+    },
+    {
+      "vs": "肝郁（血虚肝郁）",
+      "key": "血虚若兼见情绪波动后两胁胀痛、喜叹气、乳房胀痛，则属\"肝郁血虚\"。"
+    },
+    {
+      "vs": "血瘀（血虚夹瘀）",
+      "key": "血虚日久，血脉不充，运行无力而成瘀。关键鉴别：若面色苍白的同时，舌质有瘀斑、瘀点，或肌肤甲错（皮肤粗糙如鳞甲），或月经色暗有血块，则为\"血虚夹瘀\"。"
+    }
+  ],
+  "design_notes": {
+    "vs_qi_deficiency_clinical_anchor": "气虚在劳累后加重（体力消耗）；血虚在思虑后加重（心神暗耗）—— 这是论文\"时间/诱因维度辨证\"的两条高权重证据",
+    "key_insight": "血虚与气虚的舌色差异是'程度'而非'类型'：气虚=淡红偏白，血虚=淡白或纸白。模型可学到'舌色白度 → 血虚严重度'连续信号"
+  }
+}

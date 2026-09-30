@@ -1,0 +1,62 @@
+{
+  "syndrome": "阳虚",
+  "pinyin": "yáng xū",
+  "english": "Yang Deficiency",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-08",
+  "pathogenesis": "阳气亏虚，温煦失职，气化无力；多责脾肾，命门火衰",
+  "confusable_syndromes": ["气虚", "寒湿", "痰湿", "血虚"],
+  "tongue_high_region": "舌根（肾阳）、舌中（脾阳）",
+  "tongue_summary": "舌淡胖、有齿痕、苔白滑",
+  "dataset_expected_ratio": 0.11,
+  "dataset_ratio_basis": "老年+虚寒体质主导。基于老年人群流行病学推断（老年群体阳虚常见）+ 中医门诊经验",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "淡白或淡紫偏暗", "confidence": "高"},
+    {"dimension": "舌形", "value": "胖大", "confidence": "高"},
+    {"dimension": "齿痕", "value": "有，舌边明显", "confidence": "高"},
+    {"dimension": "舌质", "value": "嫩，舌面水滑，纹理细腻", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常，重者可见短缩", "confidence": "低"},
+    {"dimension": "苔色", "value": "白", "confidence": "高"},
+    {"dimension": "苔厚薄", "value": "薄或略厚", "confidence": "中"},
+    {"dimension": "苔润燥", "value": "滑润或水滑", "confidence": "高"},
+    {"dimension": "苔腻腐剥落", "value": "不腻、不腐、不剥落，或见水滑", "confidence": "中"},
+    {"dimension": "舌尖", "value": "淡白，少血色", "confidence": "低"},
+    {"dimension": "舌中", "value": "淡胖，可有细纵纹或凹陷", "confidence": "中"},
+    {"dimension": "舌根", "value": "白滑或轻度凹陷", "confidence": "中"},
+    {"dimension": "舌两侧", "value": "淡白、有齿痕，无红刺", "confidence": "低"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "anchor": "✓阳虚（肾/脾）", "question": "您是否比一般人怕冷，尤其冬天手脚冰凉？", "options": ["不怕", "稍怕", "明显怕冷", "严重怕冷，加衣仍不缓解"]},
+    {"id": 2, "type": "positive", "anchor": "✓阳虚/气虚（鉴别关键）", "question": "您怕冷时，主要是怕风吹，还是温度低就冷？", "options": ["怕风吹，加衣可缓解（气虚）", "温度低就冷，加衣盖被不易缓解（阳虚）", "两者都有", "不明显"]},
+    {"id": 3, "type": "positive", "anchor": "✓阳虚（肾）", "question": "您是否经常腰膝酸软、发凉？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 4, "type": "positive", "anchor": "✓阳虚（肾，量化）", "question": "您夜尿次数多吗？", "options": ["0-1次", "2-3次", "4次及以上"]},
+    {"id": 5, "type": "positive", "anchor": "✓阳虚（五更泻金标准）", "question": "您早晨天没亮是否腹痛想大便，大便偏稀？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 6, "type": "positive", "anchor": "✓阳虚（脾阳）", "question": "您吃凉东西后，是否容易肚子疼、拉肚子，甚至拉出未消化食物？", "options": ["不会", "偶尔", "经常", "总是"]},
+    {"id": 7, "type": "positive", "anchor": "✓阳虚", "question": "您平时手脚皮肤偏凉还是温？", "options": ["温", "偏凉", "冰凉"]},
+    {"id": 8, "type": "positive", "anchor": "✓阳虚/血虚（鉴别）", "question": "您面色是否偏白或发青，缺少红润？", "options": ["是", "不是"]},
+    {"id": 9, "type": "positive", "anchor": "✓阳虚", "question": "您是否精神疲惫、想睡，但睡后仍觉不暖或不解乏？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 10, "type": "comorbid", "anchor": "→痰湿（苔腻）/水湿内停", "question": "您是否容易下肢浮肿，尤其下午明显？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 11, "type": "comorbid", "anchor": "→热证（三选一完成鉴别）", "question": "您口渴时喜欢喝热水还是冷水？", "options": ["不渴", "喜欢热饮，喝凉不舒服（阳虚）", "喜欢冷饮（热证）"]},
+    {"id": 12, "type": "comorbid", "anchor": "→湿热", "question": "您的小便颜色是清长还是偏黄？", "options": ["清长", "正常", "偏黄"]},
+    {"id": 13, "type": "comorbid", "anchor": "→寒湿", "question": "您是否关节冷痛，遇冷加重，热敷后减轻？", "options": ["从不", "偶尔", "经常", "总是"]}
+  ],
+  "differential": [
+    {
+      "vs": "气虚",
+      "key": "气虚多表现为'恶风'，加衣可缓解；阳虚为'畏寒'，加衣盖被仍难缓解，常伴腰膝冷、夜尿多"
+    },
+    {
+      "vs": "寒湿",
+      "key": "寒湿多表现为关节冷痛重着、遇寒加重、苔白腻；阳虚以全身功能低下为主，舌淡胖水滑"
+    },
+    {
+      "vs": "痰湿",
+      "key": "痰湿以体胖、头重、苔白腻为主，寒象不如阳虚明显；阳虚常见畏寒、五更泻、夜尿清长"
+    },
+    {
+      "vs": "血虚",
+      "key": "血虚面白无华多伴头晕、失眠、舌淡白不胖；阳虚面㿠白多伴怕冷、舌淡胖水滑"
+    }
+  ]
+}

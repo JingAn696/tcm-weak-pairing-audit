@@ -1,0 +1,61 @@
+{
+  "syndrome": "痰湿",
+  "pinyin": "tán shī",
+  "english": "Phlegm-Dampness",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-08",
+  "pathogenesis": "脾虚失运，水湿内停，聚湿生痰，阻滞气机",
+  "confusable_syndromes": ["气虚", "湿热", "阳虚", "寒湿"],
+  "tongue_high_region": "舌中、舌根",
+  "tongue_summary": "舌体胖大、边有齿痕、苔白腻",
+  "dataset_expected_ratio": 0.12,
+  "dataset_ratio_basis": "现代人肥胖相关（代谢综合征、亚健康群体），基于中医门诊经验+冠心病（痰浊44%）综合判断",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "淡白或淡红", "confidence": "高"},
+    {"dimension": "舌形", "value": "胖大", "confidence": "高"},
+    {"dimension": "齿痕", "value": "有，舌边明显", "confidence": "高"},
+    {"dimension": "舌质", "value": "嫩，含水较多", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常", "confidence": "低"},
+    {"dimension": "苔色", "value": "白", "confidence": "高"},
+    {"dimension": "苔厚薄", "value": "厚或薄，以厚腻为多", "confidence": "高"},
+    {"dimension": "苔润燥", "value": "滑润或黏腻", "confidence": "高"},
+    {"dimension": "苔腻腐剥落", "value": "腻，白腻或灰白腻", "confidence": "高"},
+    {"dimension": "舌尖", "value": "淡白，可见水滑", "confidence": "低"},
+    {"dimension": "舌中", "value": "苔厚腻，或见舌中凹陷", "confidence": "高"},
+    {"dimension": "舌根", "value": "苔白厚腻", "confidence": "高"},
+    {"dimension": "舌两侧", "value": "有齿痕、白滑，无红刺", "confidence": "中"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "anchor": "✓痰湿（湿困）", "question": "您是否经常感觉身体沉重，像裹了湿布，或头重如裹？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "anchor": "✓痰湿（晨起湿困）", "question": "您早晨起床是否头昏沉、不清醒，像没睡醒？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 3, "type": "positive", "anchor": "✓痰湿", "question": "您是否喉咙痰多，经常需要清嗓子？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 4, "type": "positive", "anchor": "✓痰湿（诱因权重）", "question": "您是否胸闷、胃脘痞闷，阴雨天加重？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 5, "type": "positive", "anchor": "✓痰湿/湿热（鉴别）", "question": "您是否口中黏腻、发甜，或口渴但不想喝水？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 6, "type": "positive", "anchor": "✓痰湿（大便黏滞）", "question": "您的大便是否黏滞不爽、粘马桶？", "options": ["是", "不是"]},
+    {"id": 7, "type": "positive", "anchor": "✓痰湿（脾虚运化）", "question": "您是否食欲差、食后腹胀，甚至恶心？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 8, "type": "positive", "anchor": "✓痰湿（形肥）", "question": "您是否形体偏胖，腹部松软？", "options": ["是", "不是"]},
+    {"id": 9, "type": "positive", "anchor": "✓痰湿/气虚（鉴别金标准：苔腻）", "question": "您是否白天容易犯困，坐着就能睡着？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 10, "type": "comorbid", "anchor": "→阳虚", "question": "您是否怕冷明显，伴腰膝冷、夜尿多？", "options": ["是", "不是"]},
+    {"id": 11, "type": "positive", "anchor": "✓痰湿（小便混浊）", "question": "您是否小便混浊、泡沫多？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 12, "type": "positive", "anchor": "✓痰湿/湿热（鉴别）", "question": "您是否出汗黏腻，或皮肤容易有湿疹？", "options": ["从不", "偶尔", "经常", "总是"]}
+  ],
+  "differential": [
+    {
+      "vs": "气虚",
+      "key": "痰湿以身体沉重、头重、苔腻为主；气虚以乏力、懒言、自汗为主，舌淡胖但苔薄"
+    },
+    {
+      "vs": "湿热",
+      "key": "痰湿苔白腻、口不苦、小便清或正常；湿热苔黄腻、口苦、尿黄、便黏臭"
+    },
+    {
+      "vs": "阳虚",
+      "key": "痰湿寒象不明显，多无腰膝冷、夜尿清长；阳虚以畏寒、五更泻、夜尿多为特征"
+    },
+    {
+      "vs": "寒湿",
+      "key": "寒湿多关节冷痛重着、遇寒加重、苔白滑；痰湿以脘痞、头重、苔白腻为主"
+    }
+  ]
+}

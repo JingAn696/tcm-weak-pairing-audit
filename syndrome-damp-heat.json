@@ -1,0 +1,61 @@
+{
+  "syndrome": "湿热",
+  "pinyin": "shī rè",
+  "english": "Damp-Heat",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-08",
+  "pathogenesis": "脾胃运化失司，湿热内蕴；或肝胆湿热下注",
+  "confusable_syndromes": ["痰湿", "阴虚", "热证", "寒湿"],
+  "tongue_high_region": "舌中、舌根、舌尖",
+  "tongue_summary": "舌红、苔黄腻",
+  "dataset_expected_ratio": 0.10,
+  "dataset_ratio_basis": "地域差异大（南方湿热偏多，北方较少），基于中医门诊经验+溃疡性结肠炎（湿热26%）综合判断",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "红或暗红", "confidence": "高"},
+    {"dimension": "舌形", "value": "可胖大或正常，可见齿痕", "confidence": "中"},
+    {"dimension": "齿痕", "value": "可有可无", "confidence": "低"},
+    {"dimension": "舌质", "value": "正常或略老", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常", "confidence": "低"},
+    {"dimension": "苔色", "value": "黄", "confidence": "高"},
+    {"dimension": "苔厚薄", "value": "厚或薄", "confidence": "中"},
+    {"dimension": "苔润燥", "value": "腻而润或黏腻，一般不干", "confidence": "高"},
+    {"dimension": "苔腻腐剥落", "value": "黄腻，可灰黄腻", "confidence": "高"},
+    {"dimension": "舌尖", "value": "红，可有红点", "confidence": "高"},
+    {"dimension": "舌中", "value": "黄腻", "confidence": "高"},
+    {"dimension": "舌根", "value": "黄腻或黄厚", "confidence": "高"},
+    {"dimension": "舌两侧", "value": "红，或有红点、白沫", "confidence": "中"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "anchor": "✓湿热/痰湿（鉴别）", "question": "您是否经常口苦、口黏或口中异味？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "anchor": "✓湿热（渴不欲饮）", "question": "您是否口渴但不想多喝水，或喝水后胃胀？", "options": ["是", "不是"]},
+    {"id": 3, "type": "positive", "anchor": "✓湿热（身热不扬）", "question": "您是否身体沉重，午后身热，像从里面热出来？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 4, "type": "positive", "anchor": "✓湿热（现代化临床）", "question": "您是否面部、头发容易出油，或经常长痘？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 5, "type": "positive", "anchor": "✓湿热/寒湿（鉴别）", "question": "您是否小便黄、量少，或有灼热感？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 6, "type": "positive", "anchor": "✓湿热/痰湿（鉴别）", "question": "您的大便是否黏滞不爽、臭秽，或肛门灼热？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 7, "type": "positive", "anchor": "✓湿热", "question": "您是否经常胸闷脘痞、恶心？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 8, "type": "positive", "anchor": "✓湿热（湿疹）", "question": "您是否容易皮肤湿疹、瘙痒，或阴囊/外阴潮湿？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 9, "type": "positive", "anchor": "✓湿热（女性专属）", "applies_to": "女性", "question": "带下是否量多、色黄、有异味？", "options": ["是", "不是", "不适用"]},
+    {"id": 10, "type": "positive", "anchor": "✓湿热", "question": "您是否怕热、汗黏，汗后衣服发黄？", "options": ["是", "不是"]},
+    {"id": 11, "type": "positive", "anchor": "✓湿热/热证", "question": "您是否眼睛红、分泌物多，或耳朵流黄水？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 12, "type": "positive", "anchor": "✓湿热/气滞（鉴别）", "question": "您是否胁肋胀痛、口苦，生气后加重？", "options": ["从不", "偶尔", "经常", "总是"]}
+  ],
+  "differential": [
+    {
+      "vs": "痰湿",
+      "key": "痰湿苔白腻、口不苦、小便清或正常；湿热苔黄腻、口苦、尿黄、便黏臭"
+    },
+    {
+      "vs": "阴虚",
+      "key": "阴虚五心烦热、盗汗、舌红少苔；湿热身热不扬、午后为重，苔黄腻"
+    },
+    {
+      "vs": "热证",
+      "key": "热证口渴饮冷、舌红苔黄燥；湿热口渴不喜饮，苔黄腻"
+    },
+    {
+      "vs": "寒湿",
+      "key": "寒湿怕冷、苔白滑、便溏清稀；湿热身热、便黏臭、苔黄腻"
+    }
+  ]
+}

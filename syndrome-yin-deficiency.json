@@ -1,0 +1,76 @@
+{
+  "syndrome": "阴虚",
+  "pinyin": "yīn xū",
+  "english": "Yin Deficiency",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-07",
+  "last_revised": "2026-09-08",
+  "pathogenesis": "阴液亏少，濡养失职；阴不制阳，虚热内扰（涉及肺、胃、肝、肾，以肾阴为根本，五脏阴虚皆可旁及）",
+  "confusable_syndromes": ["血虚（同属阴亏，但血虚无热象）", "气虚（均见乏力，但气虚偏寒/功能衰退，阴虚偏热/物质亏耗）", "湿热（均有热感，但湿热苔厚腻，阴虚苔少而干）", "阳虚（寒热截然相反）", "实火（虚实之辨）"],
+  "tongue_high_region": "全舌均红为基础（阴虚本质）；高发部位为舌根 + 舌中（肾阴、胃阴亏耗的最直接征象；舌两侧/舌尖次之）",
+  "tongue_summary": "舌质红或绛红 + 舌体瘦小/裂纹 + 少苔或无苔",
+  "dataset_expected_ratio": 0.13,
+  "dataset_ratio_basis": "老年/慢性病主导（老年人群43948例汇总：阴虚占14.7%为最高单一证型）",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "红或绛红（红色越深，热象越重；虚火越旺，舌尖及边红越明显）", "confidence": "高"},
+    {"dimension": "舌形", "value": "瘦薄或偏小（阴液不足，舌体肌肉失于濡养而萎缩）", "confidence": "高"},
+    {"dimension": "齿痕", "value": "无或极轻微（除非合并气虚，否则舌体不胖大，故无齿痕）", "confidence": "高（反向鉴别）"},
+    {"dimension": "舌质", "value": "偏嫩或光嫩（如镜面舌，红而光滑无苔），或呈红嫩样", "confidence": "中"},
+    {"dimension": "舌态", "value": "正常；重症阴虚舌体可短缩不伸（津枯筋急）", "confidence": "低"},
+    {"dimension": "苔色", "value": "黄苔（若虚火明显）或白苔（但极薄而干）", "confidence": "高"},
+    {"dimension": "苔厚薄", "value": "薄苔，或少苔，或剥脱苔（花剥苔/地图舌），甚至光剥无苔（重症）", "confidence": "高"},
+    {"dimension": "苔润燥", "value": "干燥或欠润（阴液亏虚，津不上承，舌面扪之无津）", "confidence": "高"},
+    {"dimension": "苔腻腐剥落", "value": "不腻、不腐；多见剥落（整块舌苔脱落，暴露红嫩舌质）", "confidence": "中"},
+    {"dimension": "舌尖", "value": "红赤，或见红刺/芒刺（心阴不足，虚火上炎）", "confidence": "中"},
+    {"dimension": "舌中", "value": "明显凹陷或纵横交错的裂纹（如龟背状），少苔或无苔（胃阴亏虚）", "confidence": "高"},
+    {"dimension": "舌根", "value": "偏红、少苔或无苔，部分可见红点（肾阴亏耗，相火偏亢）", "confidence": "中"},
+    {"dimension": "舌两侧", "value": "偏红，或见红点/红刺（肝阴不足，肝阳偏亢）", "confidence": "中"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您是否经常感觉手心、脚心、胸口发热（五心烦热），甚至烦躁不安？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "午后或傍晚（如15-17点后）是否感觉身体一阵阵发热（潮热），像潮水一样定时发作？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 3, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您晚上睡觉时是否容易出汗（盗汗），且醒来时汗已停止，汗液摸着粘腻发凉？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "气虚（自汗/白天汗）"},
+    {"id": 4, "type": "positive", "applies_to": "all", "anchor": "阴虚（选A）", "question": "您是否经常感觉口干咽燥，且喝水偏好是？", "options": ["想喝凉的（饮冷不解渴，阴虚）", "想喝温的（阳虚/气虚）", "不渴或不愿喝（痰湿/瘀血）"], "differentiates": "阳虚/气虚（选B）/痰湿/瘀血（选C）"},
+    {"id": 5, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您的皮肤、眼睛、鼻子是否经常感觉干燥，缺乏润泽感？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 6, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您的大便是否干结难解，像羊屎蛋一样一颗一颗的？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "气虚（便溏不成形）"},
+    {"id": 7, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您是否经常感觉头晕耳鸣，且耳朵里有尖细的\"蝉鸣声\"？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "血虚（蹲起眼黑）"},
+    {"id": 8, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您是否存在入睡困难，或心烦失眠，躺在床上脑子里像过电影一样停不下来？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "血虚（多梦但无心烦）/气虚（嗜睡）"},
+    {"id": 9, "type": "positive", "applies_to": "all", "anchor": "阴虚", "question": "您是否感觉腰膝酸软无力，且膝盖或脚后跟有酸热感？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "阳虚（腰膝冷痛）"},
+    {"id": 10, "type": "positive", "applies_to": "all", "anchor": "阴虚（选A）/阳虚（选B）/气虚（选C）", "question": "您平时是怕热多，还是怕冷多？", "options": ["怕热", "怕冷", "怕风", "都不怕"], "differentiates": "阳虚（选B）/气虚（选C）"},
+    {"id": 11, "type": "positive", "applies_to": "all", "anchor": "阴虚（选B）", "question": "您的小便颜色是清稀无色的，还是偏黄、量偏少的？", "options": ["清长色白", "偏黄量少"], "differentiates": "阳虚（清长）"},
+    {"id": 12, "type": "positive", "applies_to": "all", "anchor": "阴虚（选B）", "question": "您是否容易反复出现口腔溃疡、牙龈肿痛？", "options": ["反复 + 剧痛（实火）", "反复 + 隐痛（阴虚）", "不反复"], "differentiates": "实火（选A）"},
+    {"id": 13, "type": "probe", "applies_to": "all", "anchor": "气虚", "question": "您是否经常感觉全身乏力、精神不振，且稍微一动就气喘出汗？", "options": ["从不", "偶尔", "经常", "总是"], "differentiates": "气虚（鉴别兼证）"},
+    {"id": 14, "type": "probe", "applies_to": "all", "anchor": "血虚", "question": "您蹲下后突然站起来，是否会出现眼前发黑、头晕眼花，且面色苍白、唇甲无华？", "options": ["会且面色苍白", "不会，或面色潮红"], "differentiates": "血虚（面色苍白）"},
+    {"id": 15, "type": "probe", "applies_to": "all", "anchor": "湿热/湿浊", "question": "您是否感觉身体沉重、头昏蒙如戴帽，且舌苔厚腻？", "options": ["会且有厚腻苔", "否"], "differentiates": "湿热（苔厚腻）"},
+    {"id": 16, "type": "self_tongue_observation", "applies_to": "all", "anchor": "阴虚（选A）", "question": "您的舌体在镜子里看起来，是偏红、干燥少苔，还是淡白胖大、水滑有齿痕？", "options": ["偏红、干燥少苔（阴虚）", "淡白胖大、水滑有齿痕（气虚/阳虚）", "正常"], "differentiates": "气虚/阳虚（选B）", "note": "患者自报舌象，准确度有限，应作为辅助证据而非主要分类依据"}
+  ],
+  "differential": [
+    {
+      "vs": "血虚（最易混淆）",
+      "key": "问热感与面色：阴虚有五心烦热、潮热、盗汗、口干喜冷饮，面色多颧红（两颊泛红）；血虚无热象，以面色苍白、唇甲无华、蹲起眼黑、失眠多梦为主，且口不干或喜温饮。舌象上：阴虚舌红少苔，血虚舌淡白瘦薄。"
+    },
+    {
+      "vs": "阳虚（寒热相反）",
+      "key": "问怕冷还是怕热：阴虚怕热、手脚心热、喜凉饮；阳虚畏寒肢冷、腰腹冰凉、喜热饮热敷。两者在\"疲劳、腰膝酸软\"上重叠，但体温偏好是终极判决。"
+    },
+    {
+      "vs": "气虚（功能 vs 物质）",
+      "key": "问出汗时间与精神状态：阴虚为夜间盗汗、心烦失眠、口干；气虚为白天自汗、嗜睡乏力、声音低微。临床上\"气阴两虚\"常见，若两者均有，则需按\"益气养阴\"治则（如生脉饮）。"
+    },
+    {
+      "vs": "湿热（虚实之辨）",
+      "key": "问舌苔与饮水量：阴虚是舌红少苔干燥、渴喜冷饮且饮不解渴；湿热是舌苔黄厚腻、口干但饮水不多或感觉口黏、口苦。治疗上阴虚需滋阴增液，湿热需清热利湿，方向相反，舌苔厚薄是鉴别金标准。"
+    },
+    {
+      "vs": "实火（外感/饮食积热）",
+      "key": "问病程与疼痛性质：阴虚虚火表现为反复发作、溃疡痛不剧烈、牙龈红肿但不化脓；实火为突发剧痛、红肿化脓、口臭便秘、舌苔黄燥。阴虚宜滋阴降火，实火宜清热解毒，不可混用。"
+    }
+  ],
+  "design_notes": {
+    "region_organ_mapping_4_zones": "阴虚高发舌区是论文 Region-Organ Mapping 的核心论据：舌根-肾阴、舌中-胃阴、舌两侧-肝阴、舌尖-心阴 完整覆盖四脏",
+    "tetrachotomous_inquiry_design": "第 10 条\"怕热/怕冷/怕风/都不怕\"是四选一流水结构（怕热→阴虚/怕冷→阳虚/怕风→气虚/都不怕→健康），一个问诊覆盖 3 个证型，是论文可解释性的金矿",
+    "self_tongue_observation_inquiry": "第 16 条让患者自报舌象（阴虚 vs 气虚/阳虚 vs 正常），是首个'用户参与舌象识别'的混合问诊，应作为辅助证据而非主要分类依据",
+    "yin_deficiency_vs_xue_deficiency_anchor_contrast": "阴虚和血虚的鉴别关键：阴虚=热象（烦/热/盗汗/喜冷），血虚=无热象（苍白/眼黑/多梦）。这组对照是 Knowledge-Enhanced 章节的高质量 KG 边"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "syndrome": "气滞",
+  "pinyin": "qì zhì",
+  "english": "Qi Stagnation",
+  "version": "v8",
+  "filled_by": "净安",
+  "filled_date": "2026-09-08",
+  "pathogenesis": "肝失疏泄，气机郁滞；情志不遂，升降失常",
+  "confusable_syndromes": ["血瘀", "痰湿（痰气交阻）", "湿热", "气虚"],
+  "tongue_high_region": "舌两侧（肝胆）、舌尖",
+  "tongue_summary": "舌色淡红或偏暗、苔薄白或微腻，舌形多正常",
+  "dataset_expected_ratio": 0.11,
+  "dataset_ratio_basis": "情志致病为主。原建议12%略下调避免过拟合到情志/血瘀的特殊表现",
+  "tongue_expectation": [
+    {"dimension": "舌色", "value": "淡红或暗红，边尖可见红点", "confidence": "高"},
+    {"dimension": "舌形", "value": "正常或略偏瘦，气滞久可见略胀", "confidence": "中"},
+    {"dimension": "齿痕", "value": "一般无", "confidence": "低"},
+    {"dimension": "舌质", "value": "正常或略老", "confidence": "低"},
+    {"dimension": "舌态", "value": "正常", "confidence": "低"},
+    {"dimension": "苔色", "value": "白或微黄", "confidence": "中"},
+    {"dimension": "苔厚薄", "value": "薄", "confidence": "高"},
+    {"dimension": "苔润燥", "value": "正常或略干", "confidence": "中"},
+    {"dimension": "苔腻腐剥落", "value": "不腻或微腻", "confidence": "中"},
+    {"dimension": "舌尖", "value": "偏红或有红点", "confidence": "中"},
+    {"dimension": "舌中", "value": "正常或见细纵纹", "confidence": "低"},
+    {"dimension": "舌根", "value": "正常", "confidence": "低"},
+    {"dimension": "舌两侧", "value": "可见偏胀、红点或白沫", "confidence": "高"}
+  ],
+  "inquiries": [
+    {"id": 1, "type": "positive", "anchor": "✓气滞（情志诱因）", "question": "您是否经常情绪低落或烦躁易怒？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 2, "type": "positive", "anchor": "✓气滞", "question": "您是否经常叹气，叹后觉得舒服？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 3, "type": "positive", "anchor": "✓气滞（胀窜痛）", "question": "您是否感到胸部、两侧胁肋或小腹胀满、窜痛？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 4, "type": "comorbid", "anchor": "→血瘀（鉴别金标准）", "question": "您的胀痛位置固定吗？", "options": ["固定，刺痛（血瘀）", "不固定，走窜（气滞）", "无疼痛"]},
+    {"id": 5, "type": "positive", "anchor": "✓气滞（梅核气）", "question": "您是否咽部有异物感，咳不出咽不下？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 6, "type": "positive", "anchor": "✓气滞（胃气上逆）", "question": "您是否经常嗳气、打嗝或排气多？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 7, "type": "positive", "anchor": "✓气滞（诱因权重高）", "question": "生气后是否腹胀、腹痛或乳房胀痛加重？", "options": ["会", "不会"]},
+    {"id": 8, "type": "positive", "anchor": "✓气滞（女性专属）", "applies_to": "女性", "question": "月经前是否乳房胀痛、烦躁明显？", "options": ["是", "不是", "不适用"]},
+    {"id": 9, "type": "positive", "anchor": "✓气滞", "question": "您是否经常头痛，多为胀痛或跳痛，与情绪有关？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 10, "type": "positive", "anchor": "✓气滞", "question": "您是否入睡困难，睡前脑子停不下来？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 11, "type": "positive", "anchor": "✓气滞（胸闷心悸）", "question": "您是否胸闷、心慌，但检查无明显异常？", "options": ["从不", "偶尔", "经常", "总是"]},
+    {"id": 12, "type": "comorbid", "anchor": "→气滞化火/湿热", "question": "您是否经常口苦、咽干？", "options": ["从不", "偶尔", "经常", "总是"]}
+  ],
+  "differential": [
+    {
+      "vs": "血瘀",
+      "key": "气滞为胀痛走窜，情绪相关，按揉可减；血瘀为刺痛固定、拒按、夜间加重"
+    },
+    {
+      "vs": "痰湿/痰气交阻",
+      "key": "梅核气多兼痰，见苔腻、体胖；单纯气滞苔薄，咽部异物感与情绪波动更密切"
+    },
+    {
+      "vs": "气虚",
+      "key": "气滞胀满多偏实，胀痛明显；气虚腹胀多喜按，疲劳后加重，伴少气懒言"
+    },
+    {
+      "vs": "湿热",
+      "key": "气滞化火可见口苦、咽干、苔微黄；湿热以黄腻苔、尿黄、大便黏臭为主"
+    }
+  ]
+}
