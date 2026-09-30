@@ -1,10 +1,5 @@
 # W4 代码仓库总览
 
-> **作者**：Buddy（2026-09-08 启动 W4）
-> **协作模式**：净安做中医专业判断，Buddy 做代码与论文写作
-
----
-
 ## 目录结构
 
 ```
@@ -42,28 +37,6 @@ papers/code/
     ├── metrics.py                     # Accuracy / Macro-F1 / AUC / 混淆矩阵
     └── gradcam.py                     # Grad-CAM 可解释性可视化
 ```
-
----
-
-## 立即执行（Phase 1，本周内）
-
-1. **10 JSON → CSV 转换**（净安校准的 10 个病性要素问诊模板 → 结构化 CSV）
-2. **TCM-SD 数据集下载与字段梳理**
-3. **4 个 baseline 接口骨架**（每个 50-100 行，定义 forward pass 接口）
-4. **完整模型接口骨架**（BiomedCLIP + Cross-Attn + KG + SoftCL）
-5. **训练 pipeline 框架**（跑 dummy 数据能 forward + backward）
-6. **Method 章节草稿**
-
----
-
-## 等净安完成的事
-
-| 阻塞项 | 影响 |
-|---|---|
-| AutoDL 注册 | Phase 2 启动条件 |
-| 10×10 病性相似度矩阵校准 | SoftCL 损失函数的软标签（✅ 2026-09-09 净安定稿） |
-
----
 
 ## 代码风格规范
 
