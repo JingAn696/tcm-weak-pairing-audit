@@ -6,7 +6,7 @@
 
 B-2 的原型注意力若真的"用到了舌象知识"，那么把原型换成**错的/随机的**向量，
 增益应当消失。否则"提升"只说明模型多了一层可参数量化的随机扰动，
-与舌象无关 —— 这正是审稿人会问的第一个问题。
+与舌象无关 —— 这正是该对照首先要回答的问题。
 
 两种对照（生成与 extract_prototypes_v2.py 完全同格式的 .pt，
 直接喂给 `train_full_model.py --proto_path`，B-2 一行不用改）：
@@ -40,7 +40,7 @@ B-2 的原型注意力若真的"用到了舌象知识"，那么把原型换成**
 
 用法（AutoDL）
 --------------
-    cd /root/autodl-tmp/papers/code
+    cd /root/autodl-tmp/<repo root>
     python eval/gen_random_prototypes.py \
         --proto runs/tongue_branch/tongue_prototypes_centered.pt \
         --mode shuffle --seed 42

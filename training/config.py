@@ -13,8 +13,8 @@ from typing import List, Optional
 @dataclass
 class DataConfig:
     """数据相关配置。"""
-    data_root: str = "papers/code/data"
-    tcm_sd_path: str = "papers/code/data/tcm-sd"
+    data_root: str = "data"
+    tcm_sd_path: str = "data/tcm-sd"
     train_ratio: float = 0.7
     val_ratio: float = 0.15
     test_ratio: float = 0.15
@@ -75,7 +75,7 @@ class ExperimentConfig:
     notes: str = ""
 
     # 输出目录
-    output_dir: str = "papers/code/runs"
+    output_dir: str = "runs"
 
 
 # ---------- 不同 baseline 的预设配置 ----------

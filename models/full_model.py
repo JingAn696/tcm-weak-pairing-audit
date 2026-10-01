@@ -32,7 +32,7 @@
 
     • BiomedCLIP 冻结 + LoRA（只在 cross-attn / KG / classifier 上微调）
     • Loss = α * BCE + β * SoftCL
-    • SoftCL 10×10 相似度矩阵 = 净安 11 年经验校准（2026-09-09 定稿）
+    • SoftCL 10×10 相似度矩阵 = 11 年中医临床经验校准（2026-09-09 定稿）
     • KG 嵌入 = PyKEEN TransE 训练 50 epochs
 
 为什么把 BiomedCLIP 分离 freeze：参数量从 ~150M 降到 ~12M（仅 fusion + classifier），

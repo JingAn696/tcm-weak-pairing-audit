@@ -22,7 +22,7 @@ B-1 首轮用 "mean" 策略产出的 10 个病性原型，8 对余弦相似度 >
 
 用法（AutoDL）
 --------------
-    cd /root/autodl-tmp/papers/code
+    cd /root/autodl-tmp/<repo root>
     python eval/extract_prototypes_v2.py --ckpt runs/tongue_branch/best_model.pt
 
 产出
@@ -89,7 +89,7 @@ except ImportError as _exc:
     else:
         print("  （函数齐全，可能是其它导入错误，见下方原始异常）")
     print("\n  修复步骤：")
-    print("    1) 把本机 papers/code/models/tongue_vision_branch.py 重新上传覆盖")
+    print("    1) 把本机 models/tongue_vision_branch.py 重新上传覆盖")
     print("    2) 清掉可能存在的旧字节码缓存：rm -rf models/__pycache__")
     print("    3) 验证版本：python -c \"from models.tongue_vision_branch import PROTO_VERSION; print(PROTO_VERSION)\"")
     print("       期望输出：2026-09-15")
@@ -113,7 +113,7 @@ def main():
     ap.add_argument("--proto_source", choices=["gt", "pred"], default="gt",
                     help="gt = 用检测标签（干净）；pred = 用模型预测（消融）")
     ap.add_argument("--no_prune_white", dest="prune_normal_white", action="store_false",
-                    help="关闭 B6 判据（剔除孤立白苔舌）。默认开启（净安 2026-09-15 定稿）；"
+                    help="关闭 B6 判据（剔除孤立白苔舌）。默认开启（领域专家 2026-09-15 定稿）；"
                          "敏感性分析用旧口径时才加此开关")
     ap.set_defaults(prune_normal_white=True)
     ap.add_argument("--num_workers", type=int, default=4)
@@ -143,7 +143,7 @@ def main():
     print(f"  数据   : {tongue_root}")
     print(f"  配置   : crop_bbox={crop_bbox} | feat_dim={feat_dim} | source={args.proto_source}")
     print(f"  B6 判据: prune_normal_white={args.prune_normal_white}"
-          f"（剔除孤立白苔舌 → 正常薄白，净安 2026-09-15 定稿）")
+          f"（剔除孤立白苔舌 → 正常薄白，领域专家 2026-09-15 定稿）")
     print(f"  模块版本: {PROTO_VERSION}（应为 2026-09-15）")
 
     # ---- 交接摘要：配置段 ----
@@ -284,7 +284,7 @@ def main():
     print(f"报告已保存：{rp}")
     print("=" * 78)
 
-    # ---------- 交接摘要（与上面的结论同源，专供复制给 Buddy） ----------
+    # ---------- 交接摘要（与上面的结论同源） ----------
     _meta = results[best_strat]["meta"]
     H.section("结果")
     for strat in ("mean", "centered", "centered_idf"):

@@ -2,7 +2,7 @@
 KG（知识图谱）嵌入模块
 ======================
 
-基于净安校准的 TCM 知识图谱：
+基于领域专家校准的 TCM 知识图谱：
 - 节点类型：14 观察要素 + 10 病性要素 + 6 脏腑 + 20 主诉（共 50 节点）
 - 关系类型：
     - 舌象 → 证候（is_indicator_of）
@@ -16,7 +16,7 @@ KG（知识图谱）嵌入模块
 参考：
 - PyKEEN 文档：https://pykeen.readthedocs.io/
 - Bordes et al. 2013, "Translating Embeddings for Modeling Multi-relational Data" (TransE)
-- 净安校准的 KG 节点见 papers/templates/tcm-knowledge-graph.md
+- 领域专家校准的 KG 节点见 templates/tcm-knowledge-graph.md
 """
 
 from pathlib import Path
@@ -57,7 +57,7 @@ def build_triples_from_syndromes(data_dir: Path) -> List[Tuple[str, str, str]]:
     从 10 个证型 JSON 自动构建三元组 (head, relation, tail)。
 
     Args:
-        data_dir: papers/code/ 目录
+        data_dir: 仓库根目录
 
     Returns:
         List of (head, relation, tail)
@@ -120,7 +120,7 @@ def build_triples_from_syndromes(data_dir: Path) -> List[Tuple[str, str, str]]:
                     triples.append((head, RELATION_INDICATES, syndrome_en))
 
         # 证候 → 脏腑（基于 pathogenesis 文本推断）
-        # === Buddy 草稿，待净安校准 ===
+        # === 初稿，待领域专家校准 ===
         organ_map = {
             "气虚":   ["spleen", "lung"],
             "血虚":   ["spleen", "heart", "liver"],
@@ -145,7 +145,7 @@ def build_triples_from_syndromes(data_dir: Path) -> List[Tuple[str, str, str]]:
     ]
     triples.extend(REGION_ORGAN)
 
-    # 3. 证候相似度（基于净安校准定稿的 10×10 矩阵，取 ≥ 0.3 的为 similar_to）
+    # 3. 证候相似度（基于领域专家校准定稿的 10×10 矩阵，取 ≥ 0.3 的为 similar_to）
     try:
         from .soft_cl_loss import default_syndrome_similarity_matrix
     except ImportError:  # 作为脚本直接运行时的兜底
@@ -177,7 +177,7 @@ def train_kg_embeddings(
         triples: 三元组列表
         embedding_dim: 嵌入维度（论文中应尝试 32/64/128）
         epochs: 训练轮数
-        output_path: 嵌入保存路径（默认 papers/code/models/kg_embeddings.pt）
+        output_path: 嵌入保存路径（默认 models/kg_embeddings.pt）
 
     Returns:
         entity_to_idx: {实体名: 索引}

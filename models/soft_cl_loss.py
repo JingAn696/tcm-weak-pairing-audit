@@ -14,14 +14,14 @@ Soft Contrastive Loss（软标签对比损失）
 其中：
 - z_i, z_j: 第 i, j 个样本的归一化特征向量
 - τ: 温度参数（默认 0.07）
-- w_ij: 软标签权重（来自净安校准的 10×10 病性相似度矩阵）
+- w_ij: 软标签权重（来自领域专家校准的 10×10 病性相似度矩阵）
 
 参考论文：
 - "Supervised Contrastive Learning" (Khosla et al. NeurIPS 2020)
 - "Relational Contrastive Learning" (Yu et al. 2023)
 - "Label Confusion Learning" (Xu et al. 2022)
 
-相似度矩阵：净安 2026-09-09 校准定稿（见 default_syndrome_similarity_matrix）。
+相似度矩阵：领域专家 2026-09-09 校准定稿（见 default_syndrome_similarity_matrix）。
 """
 
 from typing import Optional
@@ -31,7 +31,7 @@ import torch.nn.functional as F
 
 
 # 10 个证型的标准顺序（与 SoftCL 默认输入一致）
-# 2026-09-09 由 8 扩到 10（净安定案，新增"内风""实热"，"郁"并入"气滞"）
+# 2026-09-09 由 8 扩到 10（领域专家定案，新增"内风""实热"，"郁"并入"气滞"）
 SYNDROME_ORDER = [
     "气虚", "血虚", "阴虚", "阳虚",
     "气滞", "血瘀", "痰湿", "湿热",
@@ -41,7 +41,7 @@ SYNDROME_ORDER = [
 
 def default_syndrome_similarity_matrix() -> torch.Tensor:
     """
-    净安校准定稿的 10×10 病性相似度矩阵（2026-09-09）。
+    领域专家校准定稿的 10×10 病性相似度矩阵（2026-09-09）。
 
     数值范围：0.0 - 1.0
     - 对角线 = 1.0（自身）
@@ -49,12 +49,12 @@ def default_syndrome_similarity_matrix() -> torch.Tensor:
     - 临床对立（阳虚 vs 实热）= 0.1
     - 其余 = 0.2-0.6
 
-    该矩阵是净安 11 年中医经验的直接结晶，是 SoftCL 的核心先验。
+    该矩阵是 11 年中医临床经验的直接结晶，是 SoftCL 的核心先验。
 
     Returns:
         Tensor[10, 10]，软标签矩阵
     """
-    # === 净安校准定稿（2026-09-09）===
+    # === 领域专家校准定稿（2026-09-09）===
     # 行/列顺序：气虚 血虚 阴虚 阳虚 气滞 血瘀 痰湿 湿热 内风 实热
     matrix = torch.tensor([
         # 气虚  血虚  阴虚  阳虚  气滞  血瘀  痰湿  湿热  内风  实热
@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
     # 验证：相同病性距离应小于不同病性
     matrix = default_syndrome_similarity_matrix()
-    print(f"\n相似度矩阵（净安校准定稿）：")
+    print(f"\n相似度矩阵（领域专家校准定稿）：")
     print(f"  气虚-血虚 = {matrix[0, 1]:.2f} （气血两虚，高相关）")
     print(f"  气滞-血瘀 = {matrix[4, 5]:.2f} （气滞血瘀，高相关）")
     print(f"  阴虚-内风 = {matrix[2, 8]:.2f} （阴虚风动，最高相关之一）")

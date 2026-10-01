@@ -335,7 +335,7 @@ def main():
     print(f"  ✓ KG 命中率：{ts['hit_rate']*100:.1f}% 样本命中 ≥1 节点，"
           f"平均 {ts['avg_nodes_per_sample']:.2f} 节点/样本")
     if ts["hit_rate"] < 0.3:
-        print("  ⚠️  命中率偏低——关键词表可能需要净安校准（models/kg_keywords.py）")
+        print("  ⚠️  命中率偏低——关键词表可能需要领域专家校准（models/kg_keywords.py）")
 
     collate = make_collate(tokenizer, args.max_length)
     train_loader = DataLoader(
@@ -516,7 +516,7 @@ def main():
     print(f"\n报告已保存：{report_path}")
     print("=" * 70)
 
-    # ---------- 交接摘要（专供复制给 Buddy；与上面控制台结论同源） ----------
+    # ---------- 交接摘要（与上面控制台结论同源） ----------
     H.set_out_dir(output_dir)
     H.section("配置")
     for _k in ("visual_mode", "freeze_text", "no_kg", "epochs", "batch_size",

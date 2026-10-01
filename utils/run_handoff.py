@@ -2,8 +2,8 @@
 运行交接摘要（Run Handoff）
 ===========================
 
-净安 2026-09-15 需求：
-> 每次运行结束，把需要看的信息**同时写到文件 + 显示在控制台**，方便我复制给你。
+设计目标（2026-09-15）：
+> 每次运行结束，把需要看的信息**同时写到文件 + 显示在控制台**，便于记录与复核。
 
 **解决什么痛点**：一次训练刷几百行日志，其中真正要看的只有几行；
 复制错了、漏了、或者张冠李戴（拿 old run 的日志当成新 run 的），
@@ -22,7 +22,7 @@
       runs/tongue_region/best_model.pt
     ######## HANDOFF-END train_tongue_region ########
 
-控制台上这段被 `#` 边框包住，**从 BEGIN 复制到 END** 发给 Buddy 即可，
+控制台上这段被 `#` 边框包住，**从 BEGIN 复制到 END** 复制完整即可，
 文件同时落在 `<out_dir>/handoff_<tag>.txt`。
 
 设计要点
@@ -296,7 +296,7 @@ class Handoff:
                     lines = lines[-200:]
                 L.extend(lines)
         L.append("---------------- 复制提示 ----------------")
-        L.append(f"请把 BEGIN 到 END 之间这段完整复制给 Buddy（或 cat 下面文件）：")
+        L.append(f"请把 BEGIN 到 END 之间这段完整复制（或 cat 下面文件）：")
         if self._flushed_paths:
             L.extend(f"  {p}" for p in self._flushed_paths)
         L.append(f"{_BAR} HANDOFF-END {self.tag} {_BAR}")
@@ -307,7 +307,7 @@ class Handoff:
 
         落盘策略（2026-09-15）：**双写**
           · 统一目录 `<cwd>/_handoff/` —— 固定名 + 时间戳 + LATEST.txt
-            （净安只需记一个路径：`cat _handoff/LATEST.txt`）
+            （只需记一个路径：`cat _handoff/LATEST.txt`）
           · 脚本指定的 out_dir（如 runs/xxx/）—— 在该 run 目录留档
         """
         if not self.enabled:
@@ -482,7 +482,7 @@ def _selftest() -> int:
             print("  ✓ enabled=False：不落盘、不打印")
 
             # ---- 7. 落盘目录不可写时不崩 ----
-            H7 = Handoff("selftest_bad", out_dir="Z:/不存在的盘/x", echo=False)
+            H7 = Handoff("selftest_bad", out_dir="/nonexistent/path/x", echo=False)
             H7.kv("k", "v")
             H7.flush()
             print("  ✓ 落盘失败时未抛异常（仅告警）")

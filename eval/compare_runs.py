@@ -44,7 +44,7 @@ if str(_ROOT) not in sys.path:
 from utils.run_handoff import Handoff  # noqa: E402
 
 # 运行交接摘要（2026-09-15）：本脚本的输出本身就是"要看的东西"，
-# 所以开启 tee —— 控制台照常显示，同时完整落盘，可直接 cat 给 Buddy。
+# 所以开启 tee —— 控制台照常显示，同时完整落盘，可直接 cat。
 H = Handoff("compare_runs")
 H.tee = True
 

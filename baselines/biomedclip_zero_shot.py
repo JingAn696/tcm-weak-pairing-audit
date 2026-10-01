@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 # === 路径常量：基于脚本位置计算，不依赖调用方的工作目录 ===
-#   baselines/biomedclip_zero_shot.py → 父目录为 baselines/ → 父目录的父目录是 papers/code/（项目根）
+#   baselines/biomedclip_zero_shot.py → 父目录为 baselines/ → 父目录的父目录是 仓库根（项目根）
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _PROJECT_ROOT = _SCRIPT_DIR.parent
 _DEFAULT_DATA_ROOT = str(_PROJECT_ROOT / "data")

@@ -20,7 +20,7 @@ Stage B · B-1 结果后处理与诊断（阈值调优 + 原型质量）
 
 用法（AutoDL）
 --------------
-    cd /root/autodl-tmp/papers/code
+    cd /root/autodl-tmp/<repo root>
     python eval/tongue_branch_analysis.py --ckpt runs/tongue_branch/best_model.pt
 
     # 额外做每类独立阈值（val 正样本少的类会过拟合，谨慎使用）

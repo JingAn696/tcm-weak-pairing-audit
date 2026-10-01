@@ -7,7 +7,7 @@
 
 用法（AutoDL，4090）：
     python training/train_tongue_branch.py \\
-        --tongue_root "D:/科研/第一篇论文/数据集/TCM-Tongue/shezhen_datasets1/shezhen datasets/shezhenv3-coco/shezhenv3-coco"
+        --tongue_root "path/to/shezhenv3-coco"
 
     # 消融：bbox 裁剪 vs 整图
     python training/train_tongue_branch.py --tongue_root ... --crop_bbox
@@ -22,7 +22,7 @@
 
 预计耗时（4090）：12 epoch × 5594 图 ≈ 30-60 分钟。
 
-关键设计（对应净安 2026-09-14 的三个拍板）
+关键设计（对应领域专家 2026-09-14 的三个拍板）
 ------------------------------------------
 1. 图像输入：整图 resize（默认）；`--crop_bbox` 为消融（bbox 并集 + 15% margin）
 2. 视觉塔：分类头 + 视觉塔**后 4 层**小 lr 微调（`--unfreeze_blocks`）
@@ -207,7 +207,7 @@ def main():
                              "（气虚×痰湿 0.994，B-2 注意力失效）；centered 降至 0.71 且不过度放大差类")
     parser.add_argument("--no_prune_white", dest="prune_normal_white", action="store_false",
                         help="关闭 B6 判据（原型提取时剔除孤立白苔舌）。默认开启"
-                             "（净安 2026-09-15 定稿）；敏感性分析用旧口径时才加此开关")
+                             "（领域专家 2026-09-15 定稿）；敏感性分析用旧口径时才加此开关")
     parser.set_defaults(prune_normal_white=True)
 
     parser.add_argument("--seed", type=int, default=42,

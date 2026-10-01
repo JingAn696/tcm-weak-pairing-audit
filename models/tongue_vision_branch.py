@@ -13,7 +13,7 @@ TCM-Tongue 只有舌象形态标签（21 类，无病性标签），没有 10 �
                                     ├─► 21 类舌象头（有 GT，可监督训练）
                                     └─► 经映射矩阵 M 投影 ──► 10 病性视觉证据
 
-M（21×10，净安 2026-09-14 定稿）是**固定 0/1 先验、不参与训练** ——
+M（21×10，领域专家 2026-09-14 定稿）是**固定 0/1 先验、不参与训练** ——
 它是"领域知识注入"，不是"可学参数"。这一点在论文 Method 里要写清楚。
 
 与完整模型 v2 的衔接（B-2 阶段）
@@ -152,7 +152,7 @@ def configure_finetune(
     """
     按 transformer block 索引冻结/解冻视觉塔（PEFT 式小 lr 微调）。
 
-    策略（净安 2026-09-14 拍板"分类头 + 视觉塔后几层小 lr 微调"）：
+    策略（领域专家 2026-09-14 拍板"分类头 + 视觉塔后几层小 lr 微调"）：
       - patch_embed / pos_embed  → 冻结（底层纹理特征，不该动）
       - blocks.0 .. blocks.(L-N-1) → 冻结
       - blocks.(L-N) .. blocks.(L-1) → 可训
@@ -392,7 +392,7 @@ def extract_syndrome_prototypes(
                            μ_白苔 ≈ μ_全局 → δ_白苔 ≈ 0），保留区分性来源
         - "centered_idf" : 在 centered 基础上，再乘"独占性权重" 1/(该舌象映射到的病性数)
                            —— 只映射到血虚的剥苔舌权重大，映射到 3 个病性的白苔舌权重小
-    prune_normal_white : B6 判据（净安 2026-09-15 定，tongue_label_mapping.py §3b）。
+    prune_normal_white : B6 判据（领域专家 2026-09-15 定，tongue_label_mapping.py §3b）。
         True → 先把「孤立白苔舌」（除健康舌外只有白苔舌一个标签的图）的白苔舌标签清零，
         这些图被视为"正常薄白苔"、不再向任何病性原型贡献特征。
         实测影响（2026-09-15，gen_mapping_revision_impact.py）：约 937 张图被剔除。
@@ -611,7 +611,7 @@ if __name__ == "__main__":
         print("\n[4] 映射投影正确性：只点亮「紫舌」应让 p10 只在 血瘀+阳虚 上非零")
         with torch.no_grad():
             # 直接把 p21 设为 one-hot 紫舌，验证投影
-            # 2026-09-15 修订矩阵：紫舌 → 血瘀 + 阳虚（寒凝血瘀，净安 B4 结论）
+            # 2026-09-15 修订矩阵：紫舌 → 血瘀 + 阳虚（寒凝血瘀，领域专家 B4 结论）
             p21 = torch.zeros(1, NUM_TONGUE_CLASSES)
             p21[0, 3] = 1.0  # 3 = 紫舌
             proj = p21 @ model.mapping_matrix_colnorm

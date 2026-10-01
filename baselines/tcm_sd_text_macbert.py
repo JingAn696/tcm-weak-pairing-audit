@@ -41,7 +41,7 @@ from pathlib import Path
 from typing import Dict
 
 # === 让 baseline 1 能 import eval/ 和 models/（兄弟包）===
-#   baselines/tcm_sd_text_macbert.py → 父目录的父目录是 papers/code/
+#   baselines/tcm_sd_text_macbert.py → 父目录的父目录是 
 #   在 sys.path 里加项目根，让 `from eval.metrics import ...` 能工作
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_PROJECT_ROOT))
@@ -52,7 +52,7 @@ _PROJECT_ROOT = _SCRIPT_DIR.parent
 
 # === 运行交接摘要（2026-09-16 新增）===
 #   与 training/*.py、eval/*.py 用同一套机制：收尾时打印 + 落盘 handoff_*.txt，
-#   自带 argv / seed / 指标 / 主脚本 sha1 指纹 → 净安只需 cat 一个文件贴回。
+#   自带 argv / seed / 指标 / 主脚本 sha1 指纹 → 只需 cat 一个文件即可。
 #   动机：论文里所有 Δ 都要有共同参照，baseline 1 必须补 3 seed 做方差估计。
 from utils.run_handoff import Handoff    # noqa: E402
 
@@ -352,7 +352,7 @@ def main():
     print(f"\n报告已保存：{report_path}")
     print("=" * 70)
 
-    # ---------- 8. 交接摘要（打印 + 落盘，贴回给 Buddy）----------
+    # ---------- 8. 交接摘要（打印 + 落盘）----------
     H.section("核心指标（test）")
     H.kv("macro_f1", f"{final_metrics['macro_f1']:.4f}")
     H.kv("auc_ovr_macro", f"{final_metrics['auc_ovr_macro']:.4f}")

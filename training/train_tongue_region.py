@@ -25,7 +25,7 @@ ViT patch，union 裁剪也只提到 0.34 patch —— **粒度不匹配，不�
 
 用法（AutoDL，4090）
 --------------------
-    cd /root/autodl-tmp/papers/code
+    cd /root/autodl-tmp/<repo root>
     python training/train_tongue_region.py \
         --tongue_root "/root/autodl-tmp/TCM-Tongue/shezhen_datasets1/shezhen datasets/shezhenv3-coco/shezhenv3-coco"
 
@@ -166,7 +166,7 @@ def main():
     parser.add_argument("--proto_strategy", choices=["mean", "centered", "centered_idf"],
                         default="centered")
     parser.add_argument("--no_prune_white", dest="prune_normal_white", action="store_false",
-                        help="关闭 B6 判据（默认开启，净安 2026-09-15 定稿）")
+                        help="关闭 B6 判据（默认开启，领域专家 2026-09-15 定稿）")
     parser.set_defaults(prune_normal_white=True)
     args = parser.parse_args()
 
@@ -464,7 +464,7 @@ def main():
     print(f"\n报告已保存：{report_path}")
     print("=" * 74)
 
-    # ---------- 交接摘要（专供复制给 Buddy） ----------
+    # ---------- 交接摘要 ----------
     H.section("三套粒度 test 指标（头条 = 图像级-整图，对照 B-1 0.3097/0.3305）")
     H.table(["粒度", "macro_f1(valid)", "micro_f1", "auc"],
             [["区域级(原生)", f"{tm_region['macro_f1_valid']:.4f}",

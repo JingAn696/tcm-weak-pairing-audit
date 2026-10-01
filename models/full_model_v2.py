@@ -8,12 +8,12 @@
     得到的是乱码特征——zero-shot baseline AUC 0.49（≈随机）已经证明了这一点。
     而 MacBERT 中文微调拿到 Macro F1 87%（baseline 1）。
 
-    v2 方案（净安 2026-09-11 确认的路线 A）：
+    v2 方案（领域专家 2026-09-11 确认的路线 A）：
         文本分支 = MacBERT 热启动（从 baseline 1 checkpoint 加载，768 维）
         视觉分支 = BiomedCLIP 视觉塔（Stage B 接入舌象原型，512 维）
         KG 分支   = 50 节点嵌入（每样本 multi-hot 加权平均，64 维）
         融合      = 三向 Cross-Attention（复用 CrossModalFusion）
-        损失      = BCE + β * SoftCL（净安校准的 10×10 相似度矩阵）
+        损失      = BCE + β * SoftCL（领域专家校准的 10×10 相似度矩阵）
 
     Stage A（visual_mode="placeholder"）：TCM-SD 没有逐样本舌象图片，
     视觉输入用可学习的"缺失舌象"共享向量占位——保持三路融合结构完整。
@@ -159,7 +159,7 @@ class MultimodalSyndromeClassifierV2(nn.Module):
             dropout=fusion_dropout,
         )
 
-        # === 模块 4: SoftCL（净安校准的 10×10 矩阵，默认参数） ===
+        # === 模块 4: SoftCL（领域专家校准的 10×10 矩阵，默认参数） ===
         self.softcl = SoftContrastiveLoss(temperature=softcl_temperature)
 
     # ---------- 各分支编码 ----------
