@@ -27,7 +27,7 @@ data/                  data preparation and audit scripts
   tongue_coco_loader.py, tongue_region_loader.py   load the TMC-Tongue annotations
   syndrome_mapping.py  10 nature-of-disease label definitions
   gen_label_coverage_audit.py   reproduces the label-space coverage audit (Table 3)
-  splits_v2/           train.csv / val.csv / test.csv used in the paper
+  splits_v2/           train.csv.bz2 / val.csv / test.csv used in the paper
 models/                text tower, visual branch, fusion, and the translation layer
   tongue_label_mapping.py   the 21x10 translation layer (MATRIX_VERSION = "2026-09-15")
   full_model_v2.py          the prototype-bridged fusion model audited in the paper
@@ -59,6 +59,11 @@ train.csv   660b42360c13defa0870bdf0a5bfe16ae980ce87
 val.csv     5b9cc024b1cbfb77135535008a25462b40d3d0b4
 test.csv    1c4c06c01c484bb27e9741d7cd39afe316d7a25c
 ```
+
+`train.csv` is provided bzip2-compressed as `train.csv.bz2` to stay within the per-file size
+limit of the repository host. Decompress it with `bzip2 -dc train.csv.bz2 > train.csv` (or any
+bzip2-aware archiver such as 7-Zip). The SHA-1 above refers to the **decompressed** file, so it
+remains the pin quoted in the manuscript; `val.csv` and `test.csv` are distributed uncompressed.
 
 **Licence note for `data/splits_v2`:** these files are derived from TCM-SD and are therefore
 distributed under the same licence as the source corpus, **CC BY-NC-SA 4.0** (non-commercial,
