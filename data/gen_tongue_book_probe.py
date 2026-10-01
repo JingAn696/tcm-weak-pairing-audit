@@ -11,7 +11,7 @@
 
 依赖
 ----
-    pymupdf   （隔离环境：C:\\Users\\think\\.workbuddy\\binaries\\python\\envs\\pdfenv）
+    pymupdf   （建议装在隔离环境，避免与主环境冲突）
 
 用法
 ----
@@ -36,12 +36,12 @@ try:
     import fitz  # pymupdf
 except ImportError:  # pragma: no cover
     print("[FATAL] 需要 pymupdf。请用隔离环境运行：")
-    print(r'  "C:\Users\think\.workbuddy\binaries\python\envs\pdfenv\Scripts\python.exe" '
+    print(r'  "path/to/pdfenv/Scripts/python.exe" '
           r'data/gen_tongue_book_probe.py')
     sys.exit(2)
 
 
-BASE = r"D:\BaiduNetdiskDownload\舌诊\古代中医舌诊十大名著"
+BASE = r"path/to/book-pdfs"  # 改成你自己的古籍 PDF 目录
 
 DEFAULT_BOOKS = [
     os.path.join(BASE, r"8、望舌识病图谱\《望舌识病图谱》第2版 费兆馥 顾亦棣著 人民卫生出版社2006.pdf"),

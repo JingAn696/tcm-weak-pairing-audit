@@ -22,7 +22,7 @@ C. 文本侧：splits_v2 的 10 病性标签阳性率 → 与 B 做同向性对�
 用法
 ----
 python gen_tongue_weak_validation.py \
-    --tongue_root "D:/科研/第一篇论文/数据集/TCM-Tongue/shezhen_datasets1/shezhen datasets/shezhenv3-coco/shezhenv3-coco" \
+    --tongue_root "path/to/shezhenv3-coco" \
     --splits_dir  ./splits_v2 \
     --out         ../notes/tongue-weak-validation.md
 """
@@ -127,7 +127,7 @@ def load_text_stats(splits_dir: Path):
 
 def main():
     ap = argparse.ArgumentParser(description="TCM-Tongue 映射弱验证（方向性）")
-    ap.add_argument("--tongue_root", default=str(Path("D:/科研/第一篇论文/数据集/TCM-Tongue/"
+    ap.add_argument("--tongue_root", default=str(Path("path/to/TCM-Tongue/"
                                                       "shezhen_datasets1/shezhen datasets/"
                                                       "shezhenv3-coco/shezhenv3-coco")),
                     help="shezhenv3-coco 根目录（含 train/val/test）")
@@ -205,7 +205,7 @@ def main():
     L = []
     A = L.append
     A("# TCM-Tongue 映射「弱验证」报告（方向性 sanity check）\n")
-    A("> 生成脚本：`papers/code/data/gen_tongue_weak_validation.py`  ")
+    A("> 生成脚本：`data/gen_tongue_weak_validation.py`  ")
     A(f"> 舌象数据：TMC-Tongue（{n_img} 图 / {n_box} bbox / 21 类）  ")
     A(f"> 文本数据：TCM-SD splits_v2（{n_text} 条）\n")
     A("## ⚠️ 定位声明（必须随结果一起引用）\n")

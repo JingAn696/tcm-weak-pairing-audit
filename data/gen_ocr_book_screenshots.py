@@ -1,7 +1,7 @@
 """Batch OCR for 当当云阅读 (com.dangdang.reader) screenshots of a book.
 
 Usage:
-    python data/gen_ocr_book_screenshots.py --in_dir "D:\舌诊十讲" --out_txt runs/舌诊十讲_ocr.txt
+    python data/gen_ocr_book_screenshots.py --in_dir "path/to/book" --out_txt runs/book_ocr.txt
 
 Outputs one text block per image in chronological (filename) order.
 """

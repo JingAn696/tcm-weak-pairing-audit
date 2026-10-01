@@ -3,7 +3,7 @@ auto_disambiguate.py
 ====================
 对"待手动拆解"的复合虚证（脾肾两虚、肝肾亏虚等）做自动病性拆解。
 
-核心原则（净安要求）：
+核心原则（领域专家要求）：
 - 有较大把握的（文本里有明确病性证据） → 按规则批量拆
 - 拿不准的（无明确病性证据） → 排除
 
@@ -308,12 +308,10 @@ def print_summary(results: Dict):
 
 
 if __name__ == '__main__':
-    # 默认路径（基于项目根目录 = __file__ 向上 4 层）
-    # auto_disambiguate.py 在 papers/code/data/ 下
-    # 项目根 = C:\Users\think\WorkBuddy\2026-09-05-15-22-10
-    project_root = Path(__file__).resolve().parents[3]
-    train_jsonl = project_root / 'papers' / 'code' / 'data' / 'tcm-sd' / 'TCM_SD_train_dev' / 'train.json'
-    output_dir = project_root / 'papers' / 'code' / 'data'
+    # 默认路径（本脚本位于 <repo>/data/ 下，仓库根为其上一级）
+    project_root = Path(__file__).resolve().parents[1]
+    train_jsonl = project_root / 'data' / 'tcm-sd' / 'TCM_SD_train_dev' / 'train.json'
+    output_dir = project_root / 'data'
 
     if len(sys.argv) >= 2:
         train_jsonl = Path(sys.argv[1])

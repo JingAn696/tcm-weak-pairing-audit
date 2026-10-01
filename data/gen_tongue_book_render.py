@@ -19,7 +19,7 @@ except ImportError:
     print("[FATAL] 需要 pymupdf（隔离环境 pdfenv）")
     sys.exit(2)
 
-BASE = r"D:\BaiduNetdiskDownload\舌诊\古代中医舌诊十大名著"
+BASE = r"path/to/book-pdfs"  # 改成你自己的古籍 PDF 目录
 BOOKS = {
     1: os.path.join(BASE, r"8、望舌识病图谱\《望舌识病图谱》第2版 费兆馥 顾亦棣著 人民卫生出版社2006.pdf"),
     2: os.path.join(BASE, r"8、望舌识病图谱\《舌诊图谱：观舌知健康》臧俊岐主编 江西科学技术出版社2018.pdf"),
@@ -27,7 +27,7 @@ BOOKS = {
     4: os.path.join(BASE, r"10、临床实用舌象图谱\《临床实用舌象图谱》王彦晖主编 化学工业出版社2012.pdf"),
 }
 
-OUT_ROOT = r"C:\Users\think\AppData\Local\Temp\tongue_books"
+OUT_ROOT = r"path/to/output"  # 改成你自己的输出目录
 
 # 要渲染的页（1-based，含端点）——先按各书 TOC 声明的位置猜
 PLANS = {

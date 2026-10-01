@@ -14,7 +14,7 @@ multi-hot 标签（5,594 训练样本）。若各类 bbox 本身是"局部小框
   · 某类 bbox 的 median 相对面积 ≈ 全身/整舌 → 逐框训练≈整图训练，无意义
 
 用法：
-    python data/gen_bbox_size_diag.py --tongue_root "D:/.../shezhenv3-coco"
+    python data/gen_bbox_size_diag.py --tongue_root "path/to/shezhenv3-coco"
 """
 
 from __future__ import annotations
@@ -48,7 +48,7 @@ def load_coco(split_dir: Path):
 
 
 # 默认路径来自 tongue_coco_loader.resolve_tongue_root()（多候选自动探测）。
-# 2026-09-14：净安本机数据集已恢复；注意中间目录是 shezhenv3_coco（下划线）。
+# 2026-09-14：本机数据集已恢复；注意中间目录是 shezhenv3_coco（下划线）。
 
 
 def main():

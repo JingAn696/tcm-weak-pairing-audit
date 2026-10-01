@@ -4,7 +4,7 @@
 
 目的
 ----
-净安 2026-09-15 逐格复核后修订了 6 个格子（见 notes/mapping-open-questions.md）。
+领域专家 2026-09-15 逐格复核后修订了 6 个格子（见 notes/mapping-open-questions.md）。
 视觉分支的"原型"是**冻结 buffer**，矩阵一变、每张图的 10 病性标签就变、原型随之变，
 因此必须先把**影响面**量出来，再决定是否值得重跑 B-2。
 
@@ -70,8 +70,8 @@ SPLITS = ("train", "val", "test")
 TONGUE_ROOT_CANDIDATES = (
     str(Path(__file__).resolve().parent / "TCM-Tongue" / "shezhen_datasets1"
         / "shezhen datasets" / "shezhenv3_coco" / "shezhenv3-coco"),
-    r"D:\科研\第一篇论文\数据集\TCM-Tongue\shezhen_datasets1"
-    r"\shezhen datasets\shezhenv3_coco\shezhenv3-coco",
+    r"path/to/TCM-Tongue/shezhen_datasets1"
+    r"/shezhen datasets/shezhenv3_coco/shezhenv3-coco",
     "/root/autodl-tmp/TCM-Tongue/shezhen_datasets1/shezhen datasets/shezhenv3-coco/shezhenv3-coco",
 )
 
@@ -227,7 +227,7 @@ def main():
     print("解读提示")
     print("=" * 78)
     print("""
-  · 「旧版0914」= 净安 2026-09-14 定稿矩阵；「新版0915」= 本次逐格复核后修订
+  · 「旧版0914」= 领域专家 2026-09-14 定稿矩阵；「新版0915」= 本次逐格复核后修订
   · Δ 为负的病性 = 视觉支撑被削弱；Δ 为正 = 被加强
   · 重点看 **血虚**：A2 决定删去「剥苔舌→血虚」后，血虚的视觉来源只剩「肝胆区凹陷」，
     若 Δ 为大幅负值，Stage B 对血虚的可支持性将显著下降（血虚恰是文本基线最弱类）

@@ -6,7 +6,7 @@ KG 关键词校准工作表生成器（一次性工具）
   - 被否定检测拦截的次数（阴性描述占比）
   - 3 条真实命中例句（截取关键词上下文 ±15 字）
 
-输出：papers/notes/kg-keyword-calibration.md（净安逐节点审校用）
+输出：notes/kg-keyword-calibration.md（领域专家逐节点审校用）
 """
 
 import sys
@@ -40,10 +40,10 @@ def main():
     print(f"train 样本数: {n}")
 
     lines = []
-    lines.append("# KG 关键词校准工作表（净安审校用）\n")
+    lines.append("# KG 关键词校准工作表（领域专家审校用）\n")
     lines.append(f"> 数据源：splits_v2/train.csv（{n} 条）。生成时间：2026-09-11\n")
     lines.append("> 审校尺度：**宁可漏报，不可误报**（漏了有文本分支兜底，误报直接污染 KG 特征）\n")
-    lines.append("> 标注方式：在每节点后的「净安意见」处写 保留/删词/加词/改节点\n")
+    lines.append("> 标注方式：在每节点后的「领域专家意见」处写 保留/删词/加词/改节点\n")
 
     for group_name, kw_dict in [("一、主诉节点（20 个）", CHIEF_COMPLAINT_KEYWORDS),
                                 ("二、舌象观察节点（14 个）", OBSERVATION_KEYWORDS)]:
@@ -81,7 +81,7 @@ def main():
             for kw, pos, neg, ex in kw_stats:
                 ex_str = "<br>".join(ex) if ex else "—"
                 lines.append(f"| {kw} | {pos} | {neg} | {ex_str} |")
-            lines.append("\n**净安意见**：\n")
+            lines.append("\n**领域专家意见**：\n")
 
     out = _PROJECT_ROOT.parent / "notes" / "kg-keyword-calibration.md"
     out.parent.mkdir(parents=True, exist_ok=True)

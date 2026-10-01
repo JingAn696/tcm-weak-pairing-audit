@@ -18,11 +18,11 @@
 输出的是**关键词词频加权**比例，不是严格标签覆盖率。
 "厚/薄/燥"等程度修饰占不可表达部分很大比重，但其严重性远低于"淡白舌"。
 ⇒ 论文中**不要直接引用这个百分比**，应按维度报告（舌色 2/5、舌形 5/5、舌态 0/1 …）。
-详见 papers/notes/tongue-label-coverage-audit.md §7。
+详见 notes/tongue-label-coverage-audit.md §7。
 
 用法
 ----
-    python data/gen_label_coverage_audit.py --pdf "D:/.../中医舌诊临床图解.pdf"
+    python data/gen_label_coverage_audit.py --pdf "path/to/中医舌诊临床图解.pdf"
     python data/gen_label_coverage_audit.py --pdf <pdf> --out runs/coverage_audit.txt
 """
 
@@ -152,7 +152,7 @@ def render(res, lines):
     w(f"'西医诊断'+'中医诊断' 出现次数: {res['diag_hits']}  → 估计 80-150 个配对病例")
     w(f"第三章第二节'舌象分析'出现次数: {res['case_analysis']}")
     w("")
-    w("详见 papers/notes/tongue-label-coverage-audit.md")
+    w("详见 notes/tongue-label-coverage-audit.md")
 
 
 def main():

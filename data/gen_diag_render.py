@@ -8,11 +8,11 @@ import sys
 
 import fitz  # pymupdf
 
-OUT_ROOT = r"C:\Users\think\AppData\Local\Temp\tongue_diag"
+OUT_ROOT = r"path/to/output"  # 改成你自己的输出目录
 
 # (标签, PDF 路径, 页码范围 None=全部)
 JOBS = [
-    ("diag20", r"D:\BaiduNetdiskDownload\临时文件夹\中医诊断学（国家十五规划）.pdf", None),
+    ("diag20", r"path/to/book-pdfs/中医诊断学（国家十五规划）.pdf", None),
 ]
 
 ZOOM = float(os.environ.get("RENDER_ZOOM", "2.0"))

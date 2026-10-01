@@ -2,10 +2,10 @@
 10 个证型 JSON → CSV 转换器
 ===========================
 
-将净安校准的 10 个病性要素 JSON 文件合并为结构化 CSV，供训练时的"自构问诊增强"使用。
+将领域专家校准的 10 个病性要素 JSON 文件合并为结构化 CSV，供训练时的"自构问诊增强"使用。
 
 运行：
-    cd papers/code/data
+    cd data
     python inquiries_converter.py
 
 输出：
@@ -192,9 +192,9 @@ def write_tongue_expectation_csv(syndromes: List[Dict], out_path: Path) -> int:
 
 
 def main():
-    # 脚本所在目录 = papers/code/data/
+    # 脚本所在目录 = data/
     data_dir = Path(__file__).parent
-    # JSON 在 papers/code/ 目录里（上一级）
+    # JSON 在 仓库根目录里（上一级）
     json_dir = data_dir.parent
 
     print(f"📂 JSON 目录：{json_dir}")
@@ -221,7 +221,7 @@ def main():
     print(f"✓ tongue_expectation.csv：{n4} 行")
 
     print(f"\n🎉 全部转换完成！")
-    print(f"   净安校准的 10 病性要素 → 已就绪供训练 pipeline 使用。")
+    print(f"   领域专家校准的 10 病性要素 → 已就绪供训练 pipeline 使用。")
 
 
 if __name__ == "__main__":
