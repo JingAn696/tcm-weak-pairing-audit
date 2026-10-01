@@ -19,7 +19,7 @@ stub 模型结构、真实标注解析。以下这些**只有上服务器才知�
 
 用法（AutoDL / 4090）
 ---------------------
-    cd /root/autodl-tmp/papers/code
+    cd /root/autodl-tmp/<repo root>
 
     # 默认：48 个区域、1 个 train step、1 个 val batch
     python smoke_test_region_e2e.py \

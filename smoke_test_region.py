@@ -1,7 +1,7 @@
 """Smoke test for train_tongue_region.py helpers (no dataset / no model / no GPU).
 
 服务器部署后快速验证：
-    cd /root/autodl-tmp/papers/code
+    cd /root/autodl-tmp/<repo root>
     python smoke_test_region.py
 """
 import sys

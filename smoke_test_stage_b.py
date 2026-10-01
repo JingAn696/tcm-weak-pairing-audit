@@ -13,7 +13,7 @@ Stage B 端到端冒烟测试
 用法（本机 CPU）：
     python smoke_test_stage_b.py
     # 指定数据集路径
-    python smoke_test_stage_b.py --tongue_root "D:/.../shezhenv3-coco"
+    python smoke_test_stage_b.py --tongue_root "path/to/shezhenv3-coco"
 """
 
 from __future__ import annotations

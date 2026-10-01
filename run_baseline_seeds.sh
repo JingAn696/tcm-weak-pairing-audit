@@ -213,4 +213,4 @@ if [ -n "$FAILED" ]; then
 else
   printf '%s\n' "OK $(date '+%F %T')  seeds=$SEEDS" > baseline_done.txt
 fi
-echo "（完成标记：baseline_done.txt ；贴回给我：cat baseline_summary.txt）"
+echo "（完成标记：baseline_done.txt ；查看汇总：cat baseline_summary.txt）"

@@ -38,9 +38,9 @@
 #   freeze    对照臂，--visual_mode placeholder，零视觉信息，不读原型文件
 #   b2        真原型臂，--visual_mode proto_attn + 真实原型（tongue_prototypes_centered.pt）
 #   shuffle   阴性对照，原型「向量集合相同、对应关系打乱」
-#   gaussian  阴性对照，高斯随机原型（可选；shuffle 已够回答审稿人）
+#   gaussian  阴性对照，高斯随机原型（可选；shuffle 已足以排除「随机原型同样有效」）
 #   ⚠️ 四个臂全部带 --freeze_text（冻结 MacBERT）。这是 Stage B 的既定协议，
-#      与 runbook §14 / 上机手册第 5、6 步逐字一致；漏掉就不再可比。
+#      与全链路 seed 配对协议逐字一致；漏掉就不再可比。
 #
 # 例（后台跑，freeze 臂约 3 小时）：
 #   nohup bash run_seed_arm.sh freeze runs/tcm_text_macbert/checkpoint-6630 \
@@ -48,11 +48,11 @@
 #
 # 产物：
 #   runs/full_model_v2_freeze_e<ep>_s<seed>/      每 seed 一个目录（含 test_report.json）
-#   runs/full_model_v2_b2_e<ep>_s<seed>/          命名与手册第 5 步一致
-#   runs/full_model_v2_b2_shuffle_s<seed>/        命名与手册第 6 步一致
+#   runs/full_model_v2_b2_e<ep>_s<seed>/          命名与真原型臂一致
+#   runs/full_model_v2_b2_shuffle_s<seed>/        命名与阴性对照臂一致
 #   runs/full_model_v2_b2_gaussian_s<seed>/
 #   log_<arm>_s<seed>.log                         每 seed 完整日志（含 HANDOFF 摘要）
-#   arm_summary_<arm>.txt                         本脚本汇总的 seed 表（贴回给 Buddy 用）
+#   arm_summary_<arm>.txt                         本脚本汇总的 seed 表
 #   arm_done_<arm>.txt                            完成标记
 #
 # 怎么看进度（Ctrl+C 安全，不会杀掉后台任务）：
@@ -290,4 +290,4 @@ if [ -n "$FAILED" ]; then
 else
   printf '%s\n' "OK $(date '+%F %T')  seeds=$SEEDS" > "arm_done_${ARM}.txt"
 fi
-echo "（完成标记：arm_done_${ARM}.txt ；贴回给我：cat arm_summary_${ARM}.txt）"
+echo "（完成标记：arm_done_${ARM}.txt ；查看汇总：cat arm_summary_${ARM}.txt）"

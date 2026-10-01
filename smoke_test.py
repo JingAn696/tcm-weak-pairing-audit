@@ -5,7 +5,7 @@
 在 AutoDL 实例上跑通全链路前的分层验证脚本。
 每步独立 try-except，失败不中断，最后汇总哪几步通过。
 
-用法（在 papers/code 目录下）：
+用法（在 仓库根目录下）：
     python smoke_test.py
 
 验证层次：
@@ -21,7 +21,7 @@
 import sys
 from pathlib import Path
 
-# 保证能从 papers/code 目录 import data/ 和 models/
+# 保证能从 仓库根目录 import data/ 和 models/
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 RESULTS = []
@@ -144,7 +144,7 @@ def main():
     print("-" * 70)
     print(f"  结果：{n_pass}/{len(RESULTS)} 步通过")
     if n_pass < 6:
-        print("  ⚠️  Step 0-6 应至少全部通过。若有失败，把输出贴给 Buddy。")
+        print("  ⚠️  Step 0-6 应至少全部通过。若有失败，请保留输出以便排查。")
     else:
         print("  ✅  基础链路就绪，可以开始实现/运行 baseline。")
     print("=" * 70)
